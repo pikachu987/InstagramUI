@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7fK-74-Qlr">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ATe-hb-ODY">
+            <objects>
+                <tabBarController id="7fK-74-Qlr" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="iuB-UB-647">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="mdq-73-s4y" kind="relationship" relationship="viewControllers" id="MiL-Xb-f3i"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fza-5f-zeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-257" y="46"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="HVT-Pw-rAH">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="mdq-73-s4y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1e1-RW-34Z"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c4w-te-MOU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="epV-hb-cWN" kind="relationship" relationship="rootViewController" id="jHc-Sp-CZC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyQ-ue-Wb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882" y="46"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="8fk-8o-apl">
+            <objects>
+                <viewController id="epV-hb-cWN" customClass="MainViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uUr-SE-haS"/>
+                        <viewControllerLayoutGuide type="bottom" id="LrO-n2-ujS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dRx-fh-kQB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-va-xTq">
+                                <color key="backgroundColor" red="0.078180365264415741" green="0.82512384653091431" blue="0.53268289566040039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Awj-va-xTq" firstAttribute="top" secondItem="uUr-SE-haS" secondAttribute="bottom" id="9Mh-1E-34b"/>
+                            <constraint firstItem="Awj-va-xTq" firstAttribute="leading" secondItem="dRx-fh-kQB" secondAttribute="leading" id="OIi-O9-mD6"/>
+                            <constraint firstAttribute="trailing" secondItem="Awj-va-xTq" secondAttribute="trailing" id="OL5-Iz-hE9"/>
+                            <constraint firstItem="LrO-n2-ujS" firstAttribute="top" secondItem="Awj-va-xTq" secondAttribute="bottom" id="RdJ-R3-tLj"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yc8-Lo-A8Z" appends="YES" id="SO6-De-9h6"/>
+                            <outletCollection property="gestureRecognizers" destination="IX7-JW-tKl" appends="YES" id="k7Z-Eu-xyV"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="NwY-CC-1SB"/>
+                    <connections>
+                        <outlet property="leftEdge" destination="yc8-Lo-A8Z" id="d2M-OJ-pD6"/>
+                        <outlet property="rightEdge" destination="IX7-JW-tKl" id="xWC-cB-nlM"/>
+                        <segue destination="ahQ-jM-TNK" kind="presentation" identifier="mainVCLeft" id="U0s-gh-qVX"/>
+                        <segue destination="zIF-EG-jqf" kind="presentation" identifier="mainVCRight" id="o6y-km-EyK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imq-lh-oyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="yc8-Lo-A8Z">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="leftEdgePanGesture:" destination="epV-hb-cWN" id="FQC-VZ-EJA"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="IX7-JW-tKl">
+                    <connections>
+                        <action selector="rightEdgePanGesture:" destination="epV-hb-cWN" id="dUm-sW-53Y"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1753" y="97"/>
+        </scene>
+        <!--Main Left View Controller-->
+        <scene sceneID="dob-Qs-UkD">
+            <objects>
+                <viewController id="ahQ-jM-TNK" customClass="MainLeftViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4kN-Z1-rCr"/>
+                        <viewControllerLayoutGuide type="bottom" id="ffM-6a-B3M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gxa-bz-Qeb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYN-fy-2Cs">
+                                <color key="backgroundColor" red="0.09247300773859024" green="0.1473381519317627" blue="0.64624994993209839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="HYN-fy-2Cs" firstAttribute="top" secondItem="4kN-Z1-rCr" secondAttribute="bottom" constant="8" id="04o-wB-Uab"/>
+                            <constraint firstItem="HYN-fy-2Cs" firstAttribute="leading" secondItem="gxa-bz-Qeb" secondAttribute="leading" id="Hp9-Y5-U3F"/>
+                            <constraint firstItem="ffM-6a-B3M" firstAttribute="top" secondItem="HYN-fy-2Cs" secondAttribute="bottom" id="w9m-oh-ScH"/>
+                            <constraint firstAttribute="trailing" secondItem="HYN-fy-2Cs" secondAttribute="trailing" id="zD5-7N-NqO"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="FgG-Bg-85Z" appends="YES" id="tTA-SV-KGe"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dtc-Gu-d2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="FgG-Bg-85Z">
+                    <connections>
+                        <action selector="handleGesture:" destination="ahQ-jM-TNK" id="oIS-u1-UW7"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1413.5999999999999" y="-610.34482758620697"/>
+        </scene>
+        <!--Main Right View Controller-->
+        <scene sceneID="XHs-g4-XcT">
+            <objects>
+                <viewController id="zIF-EG-jqf" customClass="MainRightViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nju-QI-2RY"/>
+                        <viewControllerLayoutGuide type="bottom" id="sfQ-P5-2Dx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l6k-BO-YkT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="f94-jW-52r" appends="YES" id="R1K-Gn-KST"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meW-GX-bEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="f94-jW-52r">
+                    <connections>
+                        <action selector="handleGesture:" destination="zIF-EG-jqf" id="XHy-47-GAg"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2082" y="-610"/>
+        </scene>
+    </scenes>
+</document>
