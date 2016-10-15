@@ -90,7 +90,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1753" y="97"/>
+            <point key="canvasLocation" x="1994" y="45"/>
         </scene>
         <!--Main Left View Controller-->
         <scene sceneID="dob-Qs-UkD">
@@ -128,7 +128,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1413.5999999999999" y="-610.34482758620697"/>
+            <point key="canvasLocation" x="1337" y="-686"/>
         </scene>
         <!--Main Right View Controller-->
         <scene sceneID="XHs-g4-XcT">
@@ -155,7 +155,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2082" y="-610"/>
+            <point key="canvasLocation" x="2582" y="-687"/>
         </scene>
     </scenes>
 </document>

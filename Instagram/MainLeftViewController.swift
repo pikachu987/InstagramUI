@@ -7,15 +7,91 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainLeftViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     var interactor:Interactor? = nil
     let picker = UIImagePickerController()
     
+    
+    let captureSession = AVCaptureSession()
+    var previewLayer : AVCaptureVideoPreviewLayer?
+    var captureDevice : AVCaptureDevice?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageCallback(UIImagePickerControllerSourceType.camera)
+        
+        
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        
+        let devices = AVCaptureDevice.devices()
+        for device in devices! {
+            if ((device as AnyObject).hasMediaType(AVMediaTypeVideo)) {
+                if((device as AnyObject).position == AVCaptureDevicePosition.back) {
+                    captureDevice = device as? AVCaptureDevice
+                    if captureDevice != nil {
+                        if let device = captureDevice {
+                            do{
+                                try device.lockForConfiguration()
+                                device.focusMode = .locked
+                                device.unlockForConfiguration()
+                            }catch {
+                                print("locaForConfiguration error")
+                            }
+                        }
+                        do{
+                            try captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
+                            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                            self.view.layer.addSublayer(previewLayer!)
+                            previewLayer?.frame = self.view.layer.frame
+                            captureSession.startRunning()
+                        }catch{
+                            print("error")
+                        }
+                    }
+                }
+            }
+        }
     }
+    
+    let screenWidth = UIScreen.main.bounds.size.width
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let anyTouch = touches.first
+        let touchPercent = (anyTouch?.location(in: self.view).x)! / screenWidth
+        focusTo(value: Float(touchPercent))
+    }
+    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        DispatchQueue.global().async {
+//            print("moved")
+//        }
+//        let anyTouch = touches.first
+//        let touchPercent = (anyTouch?.location(in: self.view).x)! / screenWidth
+//        focusTo(value: Float(touchPercent))
+//    }
+    
+    
+    func focusTo(value : Float) {
+        if let device = captureDevice {
+            if(device.isLockingFocusWithCustomLensPositionSupported) {
+                print(value)
+                device.setFocusModeLockedWithLensPosition(value, completionHandler: { (time) in
+                    print("time")
+                })
+                device.unlockForConfiguration()
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
@@ -23,35 +99,5 @@ class MainLeftViewController: UIViewController, UIImagePickerControllerDelegate,
         MenuHelper.mapGestureStateToInteractor(sender.state,progress: progress,interactor: interactor){
             self.dismiss(animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func closeMenu(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //이미지 콜백
-    func imageCallback(_ sourceType : UIImagePickerControllerSourceType){
-        picker.allowsEditing = true
-        picker.delegate = self
-        picker.sourceType = sourceType
-        present(picker, animated: false, completion: nil)
-    }
-    //이미지 끝
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    //이미지 받아오기
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        var newImage: UIImage
-        if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-            newImage = possibleImage
-        } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            newImage = possibleImage
-        } else {
-            return
-        }
-        dismiss(animated: false, completion: {(_) in
-            
-        })
     }
 }

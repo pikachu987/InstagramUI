@@ -19,7 +19,7 @@ class MainRightViewController: UIViewController{
     
     @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .left)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         MenuHelper.mapGestureStateToInteractor(sender.state,progress: progress,interactor: interactor){
             self.dismiss(animated: true, completion: nil)
         }
