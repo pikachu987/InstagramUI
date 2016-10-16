@@ -103,19 +103,8 @@
                     <view key="view" contentMode="scaleToFill" id="gxa-bz-Qeb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYN-fy-2Cs">
-                                <color key="backgroundColor" red="0.09247300773859024" green="0.1473381519317627" blue="0.64624994993209839" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="HYN-fy-2Cs" firstAttribute="top" secondItem="4kN-Z1-rCr" secondAttribute="bottom" constant="8" id="04o-wB-Uab"/>
-                            <constraint firstItem="HYN-fy-2Cs" firstAttribute="leading" secondItem="gxa-bz-Qeb" secondAttribute="leading" id="Hp9-Y5-U3F"/>
-                            <constraint firstItem="ffM-6a-B3M" firstAttribute="top" secondItem="HYN-fy-2Cs" secondAttribute="bottom" id="w9m-oh-ScH"/>
-                            <constraint firstAttribute="trailing" secondItem="HYN-fy-2Cs" secondAttribute="trailing" id="zD5-7N-NqO"/>
-                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="FgG-Bg-85Z" appends="YES" id="tTA-SV-KGe"/>
                         </connections>
