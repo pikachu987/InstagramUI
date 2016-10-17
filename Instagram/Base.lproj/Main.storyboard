@@ -130,8 +130,58 @@
                     <view key="view" contentMode="scaleToFill" id="l6k-BO-YkT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bui-tZ-cqt">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXE-fj-mae">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="6d5-DU-VBv"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="closeMenu:" destination="zIF-EG-jqf" eventType="touchUpInside" id="6zE-wc-LCN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2E-ve-W8w">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="47z-OA-n13"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="sendAction:" destination="zIF-EG-jqf" eventType="touchUpInside" id="cHp-Yx-7dO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direct" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1r-9F-Qio">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="YZU-pC-PTe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="z1r-9F-Qio" secondAttribute="bottom" id="0Ze-uO-byz"/>
+                                    <constraint firstAttribute="trailing" secondItem="a2E-ve-W8w" secondAttribute="trailing" constant="5" id="CEh-hC-Uq8"/>
+                                    <constraint firstAttribute="bottom" secondItem="a2E-ve-W8w" secondAttribute="bottom" constant="5" id="KPs-iP-BUc"/>
+                                    <constraint firstItem="qXE-fj-mae" firstAttribute="leading" secondItem="bui-tZ-cqt" secondAttribute="leading" constant="5" id="LO2-FI-zil"/>
+                                    <constraint firstItem="a2E-ve-W8w" firstAttribute="top" secondItem="bui-tZ-cqt" secondAttribute="top" constant="5" id="i70-gl-hTU"/>
+                                    <constraint firstItem="z1r-9F-Qio" firstAttribute="top" secondItem="bui-tZ-cqt" secondAttribute="top" id="lvL-7C-6H3"/>
+                                    <constraint firstAttribute="height" constant="40" id="pKY-R7-6Pw"/>
+                                    <constraint firstItem="qXE-fj-mae" firstAttribute="top" secondItem="bui-tZ-cqt" secondAttribute="top" constant="5" id="xdj-uS-vYD"/>
+                                    <constraint firstAttribute="bottom" secondItem="qXE-fj-mae" secondAttribute="bottom" constant="5" id="yt7-Gm-A6a"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bui-tZ-cqt" secondAttribute="trailing" id="4S2-zl-P8M"/>
+                            <constraint firstItem="z1r-9F-Qio" firstAttribute="centerX" secondItem="l6k-BO-YkT" secondAttribute="centerX" id="eVe-J5-5Wq"/>
+                            <constraint firstItem="bui-tZ-cqt" firstAttribute="leading" secondItem="l6k-BO-YkT" secondAttribute="leading" id="jB4-qS-0sX"/>
+                            <constraint firstItem="bui-tZ-cqt" firstAttribute="top" secondItem="nju-QI-2RY" secondAttribute="bottom" id="zb4-CP-mrw"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="f94-jW-52r" appends="YES" id="R1K-Gn-KST"/>
                         </connections>
@@ -144,7 +194,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2582" y="-687"/>
+            <point key="canvasLocation" x="2581.5999999999999" y="-687.7061469265368"/>
         </scene>
     </scenes>
 </document>

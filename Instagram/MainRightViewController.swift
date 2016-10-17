@@ -28,4 +28,15 @@ class MainRightViewController: UIViewController{
     @IBAction func closeMenu(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func sendAction(_ sender: AnyObject) {
+        let alert = UIAlertController(title:"",message:"", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title:"사진 또는 동영상 보내기",style: .default,handler:{(_) in
+            
+        }))
+        alert.addAction(UIAlertAction(title:"메시지 보내기",style: .default,handler:{(_) in
+            
+        }))
+        alert.addAction(UIAlertAction(title:"취소",style: .cancel,handler:nil))
+        self.present(alert, animated: true, completion: {(_) in })
+    }
 }
